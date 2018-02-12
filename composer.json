@@ -5,5 +5,11 @@
     "require": {
         "php": "^5.3.3 || ^7.0",
         "another-vendor/package": "1.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Larabookir\\Gateway\\": "src/",
+            "Larabookir\\Gateway\\Tests\\": "tests/"
+        }
     }
 }
