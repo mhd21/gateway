@@ -42,12 +42,12 @@ class Saman extends PortAbstract implements PortInterface
     public function redirect()
     {
 
-        return \View::make('gateway::saman-redirector')->with([
+        return [
             'amount' => $this->amount,
             'merchant' => $this->config->get('gateway.saman.merchant'),
             'resNum' => $this->transactionId(),
             'callBackUrl' => $this->getCallback()
-        ]);
+        ];
     }
 
     /**
@@ -142,7 +142,7 @@ class Saman extends PortAbstract implements PortInterface
         if ($response != $this->amount) {
 
             //Reverse Transaction
-            if($response>0){
+            if ($response > 0) {
                 try {
                     $soap = new SoapClient($this->serverUrl);
                     $response = $soap->ReverseTransaction($fields["RefNum"], $fields["merchantID"], $fields["password"], $response);

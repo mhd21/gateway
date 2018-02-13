@@ -45,7 +45,10 @@ class Mellat extends PortAbstract implements PortInterface
 	{
 		$refId = $this->refId;
 
-        return \View::make('gateway::mellat-redirector')->with(compact('refId'));
+        return [
+            'url' => 'https://bpm.shaparak.ir/pgwchannel/startpay.mellat',
+            'RefId' => $refId
+        ];
 	}
 
 	/**
