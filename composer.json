@@ -4,7 +4,8 @@
     "description": "forked from larabook/gateway to use in lumen",
     "minimum-stability": "dev",
     "require": {
-        "php": "^5.3.3 || ^7.0"
+        "php": "^5.3.3 || ^7.0",
+        "mhd21/gateway": "dev-master"
     },
     "autoload": {
         "psr-4": {
