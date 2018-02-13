@@ -12,15 +12,15 @@
             "Larabookir\\Gateway\\": "src/",
             "Larabookir\\Gateway\\Tests\\": "tests/"
         }
-    }
-    ,
+    },
     "extra": {
-    "laravel": {
-        "providers": [
-            "Larabookir\\Gateway\\GatewayServiceProvider"
-        ],
-        "aliases": {
-            "Gateway": "Larabookir\\Gateway\\Gateway"
+        "laravel": {
+            "providers": [
+                "Larabookir\\Gateway\\GatewayServiceProvider"
+            ],
+            "aliases": {
+                "Gateway": "Larabookir\\Gateway\\Gateway"
+            }
         }
     }
 }
