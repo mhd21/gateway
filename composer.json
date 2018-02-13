@@ -2,6 +2,7 @@
     "name": "mhd21/gateway",
     "homepage": "https://github.com/mhd21/gateway.git",
     "description": "forked from larabook/gateway to use in lumen",
+    "minimum-stability": "stable",
     "require": {
         "php": "^5.3.3 || ^7.0",
         "another-vendor/package": "1.*"
