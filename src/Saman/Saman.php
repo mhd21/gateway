@@ -46,6 +46,7 @@ class Saman extends PortAbstract implements PortInterface
             'amount' => $this->amount,
             'merchant' => $this->config->get('gateway.saman.merchant'),
             'resNum' => $this->transactionId(),
+            'url' => 'https://sep.shaparak.ir/Payment.aspx',
             'callBackUrl' => $this->getCallback()
         ];
     }
