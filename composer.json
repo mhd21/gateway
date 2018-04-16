@@ -1,6 +1,5 @@
 {
     "name": "mhd21/gateway",
-    "version" : "1.0",
     "homepage": "https://github.com/mhd21/gateway.git",
     "description": "forked from larabook/gateway to use in lumen",
     "minimum-stability": "dev",
