@@ -1,26 +1,21 @@
 {
-    "name": "mhd21/gateway",
-    "homepage": "https://github.com/mhd21/gateway.git",
-    "description": "forked from larabook/gateway to use in lumen",
+    "name": "mhd/gateway",
+    "description": "iran banks gateway forked for lumen from larabook gateway",
+    "type": "library",
+    "authors": [
+        {
+            "name": "mhd",
+            "email": "dimitry2195@gmail.com"
+        }
+    ],
     "minimum-stability": "dev",
     "require": {
-        "php": "^5.3.3 || ^7.0",
-        "mhd21/gateway": "dev-master"
+        "php" : ">=7.0"
     },
     "autoload": {
         "psr-4": {
             "Larabookir\\Gateway\\": "src/",
             "Larabookir\\Gateway\\Tests\\": "tests/"
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Larabookir\\Gateway\\GatewayServiceProvider"
-            ],
-            "aliases": {
-                "Gateway": "Larabookir\\Gateway\\Gateway"
-            }
         }
     }
 }
