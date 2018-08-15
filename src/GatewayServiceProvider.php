@@ -13,6 +13,27 @@ class GatewayServiceProvider extends ServiceProvider
 	 */
 	protected $defer = false;
 
+    /**
+     * Actual provider
+     *
+     * @var \Illuminate\Support\ServiceProvider
+     */
+    protected $provider;
+
+
+    /**
+     * Create a new service provider instance.
+     *
+     * @param  \Illuminate\Contracts\Foundation\Application  $app
+     * @return void
+     */
+    public function __construct($app)
+    {
+        parent::__construct($app);
+
+        $this->provider = $this->getProvider();
+    }
+
 	/**
 	 * Bootstrap the application services.
 	 *
@@ -20,7 +41,10 @@ class GatewayServiceProvider extends ServiceProvider
 	 */
 	public function boot()
 	{
-		app()->configure('gateway');
+        if (method_exists($this->provider, 'boot')) {
+            return $this->provider->boot();
+        }
+//		app()->configure('gateway');
 	}
 
 	/**
@@ -30,9 +54,25 @@ class GatewayServiceProvider extends ServiceProvider
 	 */
 	public function register()
 	{
-		$this->app->singleton('gateway', function () {
-			return new GatewayResolver();
-		});
-
+//		$this->app->singleton('gateway', function () {
+//			return new GatewayResolver();
+//		});
+        return $this->provider->register();
 	}
+
+    /**
+     * Return ServiceProvider according to Laravel version
+     *
+     * @return \Intervention\Image\Provider\ProviderInterface
+     */
+    private function getProvider()
+    {
+        if (version_compare(\Illuminate\Foundation\Application::VERSION, '5.0', '<')) {
+            $provider = 'Larabookir\Gateway\GatewayServiceProviderLaravel4';
+        } else {
+            $provider = 'Larabookir\Gateway\GatewayServiceProviderLaravel5';
+        }
+
+        return new $provider($this->app);
+    }
 }
