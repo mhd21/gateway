@@ -99,6 +99,7 @@ class Saman extends PortAbstract implements PortInterface
         $this->refId = Input::get('RefNum');
         $this->trackingCode = Input::get('ResNum');
         $payRequestRes = Input::get('State');
+        $this->cardNumber = Input::get('SecurePan');
         $payRequestResCode = Input::get('StateCode');
 
         if ($payRequestRes == 'OK') {
